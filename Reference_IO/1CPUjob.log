@@ -1,0 +1,565 @@
+1
+mpirun -np 1 /afs/crc.nd.edu/group/cswarm/pgfem_3d/build_pgfem3d_mvapich2-2.2-gcc-7.1.0-mlx/develop/bin/PGFem3D -SS -cm 1 -noLS -noCCE -no-compute-reactions -no-compute-macro -maxit 3000 -kdim 1000 -V box_1CPU/box_ /afs/crc.nd.edu/user/k/ksaha/pgfem3d_test/const_T_with_constrained_BC/out/box_1CPU/box
+=== SINGLE SCALE ANALYSIS ===
+
+
+
+Initializing PFEM3d
+
+*** Parsing options from: -cm 1 -noLS -noCCE -no-compute-reactions -no-compute-macro -maxit 3000 -kdim 1000 -V box_1CPU/box_ /afs/crc.nd.edu/user/k/ksaha/pgfem3d_test/const_T_with_constrained_BC/out/box_1CPU/box ***
+OPTION VALUES:
+=== SOLVER OPTIONS ===
+Solver package: 1
+Solver:         0
+Preconditioner: 2
+Kdim:           1000
+Max It:         3000
+LINE SEARCH is disabled
+ADAPTIVE TIME STEPPING is disabled
+EXIT WITH ENERGY NORM IS CONVERGED is disabled
+
+=== ANALYSIS OPTIONS ===
+Analysis type:      9
+Stab parameter:     0.000000000000e+00
+Cohesive elems:     0
+Multi-scale:        0
+Constitutive Model: 1
+
+=== VISUALIZATION OPTIONS ===
+Visualization:  2
+Smoothing:      -1
+
+=== OTHER OPTIONS ===
+Periodic:       -1
+Renumber:       0
+Legacy format:  0
+Debug:          0
+Restart:        -1
+Walltime:       -1.000000[s]
+
+=== FILE OPTIONS ===
+IPath:          box_1CPU
+OPath:          /afs/crc.nd.edu/user/k/ksaha/pgfem3d_test/const_T_with_constrained_BC/out/box_1CPU
+Input: box_
+Output: box
+
+Total number of physics: 2
+0. physics name 		= heat_transfer
+   # of unknown on node 	= 1
+   # of physics to be coupled 	= 0, ids = 
+   # of output variables 	= 2, ids = 0 1 
+
+1. physics name 		= solid_mechanics
+   # of unknown on node 	= 3
+   # of physics to be coupled 	= 1, ids = 0 
+   # of output variables 	= 4, ids = 0 3 6 11 
+
+BC exists skip BC from filebase_*.in instead read boundary conditions from BC
+[0]Warning: attempted to allocate 0 elements. Comm_hints_read:comm_hints.cc:45
+[0]Warning: attempted to allocate 0 elements. Comm_hints_read:comm_hints.cc:52
+WARNING: no boundary elements on domain...seems odd
+
+******************************
+* Program PFEM3d ver. 1.0    *
+* Karel Matous           (c) *
+******************************
+
+/afs/crc.nd.edu/group/cswarm/pgfem_3d/build_pgfem3d_mvapich2-2.2-gcc-7.1.0-mlx/develop/bin/PGFem3D -SS -cm 1 -noLS -noCCE -no-compute-reactions -no-compute-macro -maxit 3000 -kdim 1000 -V box_1CPU /afs/crc.nd.edu/user/k/ksaha/pgfem3d_test/const_T_with_constrained_BC/out/box_1CPU 
+
+USE CONSTITUTIVE MODEL INTERFACE:
+UPDATED LAGRANGIAN, TOTAL LAGRANGIAN, AND MIXED ANALYSIS MODE
+
+SolverPackage: HYPRE - GMRES
+Preconditioner: HYPRE - EUCLID
+
+Number of total nodes                    : 2040
+Number of nodes on domain interfaces     : 0
+Total number of elements                 : 9807
+Number of elems on the COMM interfaces   : 0
+Total number of bounding (surf) elems    : 0
+---------------------------------------------
+Physics name: heat_transfer
+Total number of degrees of freedom       : 1767
+Total number of nonzeros in the matrix   : 23289
+Symmetric skyline (including diagonal)   : 457181
+---------------------------------------------
+Physics name: solid_mechanics
+Total number of degrees of freedom       : 5845
+Total number of nonzeros in the matrix   : 229057
+Symmetric skyline (including diagonal)   : 4749273
+Fail to open file [box_1CPU/traction.in]. Zero traction is applied.
+Total load from surface tractions: 0.00000000e+00
+
+
+NONLINEAR SOLVER (heat_transfer): NEWTON-RAPHSON METHOD
+NONLINEAR SOLVER (solid_mechanics): NEWTON-RAPHSON METHOD
+
+Iterative solver info:
+Kdim     = 1000
+Max. It. = 3000
+Iterative solver info:
+Kdim     = 1000
+Max. It. = 3000
+IC directory exists, read initial conditions from IC
+Default initial temperature: 3.000000e+02
+Density(0), 0.000000e+00
+oVolume = 1.000000000000
+
+Finite deformations time step 0)  Time 1.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 0.000000e+00, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.103031, U 0.362630
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144655855887e-03] || [1.144655855887e-03]
+nor = 2.33752225e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46401026e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33758088e-06 :: ||f||/||f0|| = [2.33752225e-06] || [2.94605369e-10] :: S 0.103031, U 0.460074
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481280360599e-14] || [4.481280360599e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 0.000000e+00, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 0 : R = 0.00000000e+00 :: ||f||/||f0|| = [1.00000000e+00] || [1.51582788e-01] :: S 0.134455, U 0.985339
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 3.89117075e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.51412098e-01 || HU = 9.99800000e-01
+(1) IT = 77 : R = 8.16084597e-06 :: ||f||/||f0|| = [3.89117075e-01] || [5.89834512e-02] :: S 0.137349, U 1.555959
+INFO: Energy norm = |R'du|/|R0'du0| = [1.323524306378e-01] || [1.323524306378e-01]
+nor = 2.01697904e-02 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 2.68684240e-03 || HU = 9.99800000e-01
+(2) IT = 34 : R = 4.79224957e-06 :: ||f||/||f0|| = [2.01697904e-02] || [3.05739307e-03] :: S 0.145271, U 2.81892
+INFO: Energy norm = |R'du|/|R0'du0| = [1.480772871927e-03] || [1.480772871927e-03]
+nor = 6.56685656e-05 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.06001568e-05 || HU = 9.99800000e-01
+(3) IT = 38 : R = 4.29587849e-06 :: ||f||/||f0|| = [6.56685656e-05] || [9.95422427e-06] :: S 0.150224, U 2.602898
+INFO: Energy norm = |R'du|/|R0'du0| = [2.785911298577e-07] || [2.785911298577e-07]
+nor = 7.92546380e-10 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.45657990e-10 || HU = 9.99800000e-01
+(4) IT = 31 : R = 3.96271247e-06 :: ||f||/||f0|| = [7.92546380e-10] || [1.20136390e-10] :: S 0.153155, U 3.122161
+INFO: Energy norm = |R'du|/|R0'du0| = [1.094667093937e-14] || [1.094667093937e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 1)  Time 2.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 1.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.188139, U 3.462566
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640907546e-03] || [1.144640907546e-03]
+nor = 2.33760982e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46441965e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757934e-06 :: ||f||/||f0|| = [2.33760982e-06] || [2.94616405e-10] :: S 0.188167, U 3.560169
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481425232236e-14] || [4.481425232236e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 1.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 31 : R = 3.96271247e-06 :: ||f||/||f0|| = [1.06951660e+00] || [1.62120309e-01] :: S 0.197160, U 4.96338
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 3.32246107e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 9.65038721e-02 || HU = 9.99800000e-01
+(1) IT = 90 : R = 7.60106241e-06 :: ||f||/||f0|| = [3.32246107e-01] || [5.03627913e-02] :: S 0.202136, U 4.689161
+INFO: Energy norm = |R'du|/|R0'du0| = [1.085120802987e-01] || [1.085120802987e-01]
+nor = 1.31007993e-02 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.55480449e-03 || HU = 9.99800000e-01
+(2) IT = 35 : R = 8.43132033e-06 :: ||f||/||f0|| = [1.31007993e-02] || [1.98585569e-03] :: S 0.204107, U 5.207736
+INFO: Energy norm = |R'du|/|R0'du0| = [8.115909548100e-04] || [8.115909548100e-04]
+nor = 2.35476238e-05 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.23071456e-06 || HU = 9.99800000e-01
+(3) IT = 40 : R = 9.27830147e-06 :: ||f||/||f0|| = [2.35476238e-05] || [3.56941446e-06] :: S 0.206091, U 5.728534
+INFO: Energy norm = |R'du|/|R0'du0| = [6.245140825961e-08] || [6.245140825961e-08]
+nor = 3.08370263e-10 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.71494741e-10 || HU = 9.99800000e-01
+(4) IT = 32 : R = 9.47147263e-06 :: ||f||/||f0|| = [3.08370263e-10] || [4.67436243e-11] :: S 0.207085, U 6.242563
+INFO: Energy norm = |R'du|/|R0'du0| = [1.720956000841e-15] || [1.720956000841e-15]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 2)  Time 3.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 2.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.241182, U 6.582975
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640907890e-03] || [1.144640907890e-03]
+nor = 2.33751189e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46396183e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757934e-06 :: ||f||/||f0|| = [2.33751189e-06] || [2.94604063e-10] :: S 0.241194, U 6.684380
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481369741752e-14] || [4.481369741752e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 2.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 32 : R = 9.47147263e-06 :: ||f||/||f0|| = [1.13032308e+00] || [1.71337523e-01] :: S 0.250180, U 7.215208
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 2.89655504e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 6.56686946e-02 || HU = 9.99800000e-01
+(1) IT = 101 : R = 8.72917097e-06 :: ||f||/||f0|| = [2.89655504e-01] || [4.39067889e-02] :: S 0.256149, U 7.837576
+INFO: Energy norm = |R'du|/|R0'du0| = [9.121623207035e-02] || [9.121623207035e-02]
+nor = 8.89078723e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 9.42143083e-04 || HU = 9.99800000e-01
+(2) IT = 31 : R = 8.27976316e-06 :: ||f||/||f0|| = [8.89078723e-03] || [1.34769032e-03] :: S 0.260150, U 8.347823
+INFO: Energy norm = |R'du|/|R0'du0| = [4.701990795548e-04] || [4.701990795548e-04]
+nor = 1.05266228e-05 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.40183755e-06 || HU = 9.99800000e-01
+(3) IT = 44 : R = 4.99604752e-06 :: ||f||/||f0|| = [1.05266228e-05] || [1.59565483e-06] :: S 0.263154, U 8.879208
+INFO: Energy norm = |R'du|/|R0'du0| = [1.720406003102e-08] || [1.720406003102e-08]
+nor = 1.15339975e-10 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.20055368e-10 || HU = 9.99800000e-01
+(4) IT = 36 : R = 5.01851819e-06 :: ||f||/||f0|| = [1.15339975e-10] || [1.74835550e-11] :: S 0.266139, U 9.393935
+INFO: Energy norm = |R'du|/|R0'du0| = [2.400674253266e-16] || [2.400674253266e-16]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 3)  Time 4.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 3.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.295154, U 9.746106
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640907648e-03] || [1.144640907648e-03]
+nor = 2.33755533e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46416493e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757933e-06 :: ||f||/||f0|| = [2.33755533e-06] || [2.94609538e-10] :: S 0.295154, U 9.843843
+INFO: Energy norm = |R'du|/|R0'du0| = [4.480625608159e-14] || [4.480625608159e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 3.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 36 : R = 5.01851819e-06 :: ||f||/||f0|| = [1.18424031e+00] || [1.79510448e-01] :: S 0.299159, U 10.371530
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 2.56601997e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 4.69505175e-02 || HU = 9.99800000e-01
+(1) IT = 94 : R = 8.90454738e-06 :: ||f||/||f0|| = [2.56601997e-01] || [3.88964461e-02] :: S 0.302134, U 10.987877
+INFO: Energy norm = |R'du|/|R0'du0| = [7.817753212783e-02] || [7.817753212783e-02]
+nor = 6.22205814e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.87960386e-04 || HU = 9.99800000e-01
+(2) IT = 34 : R = 9.86254467e-06 :: ||f||/||f0|| = [6.22205814e-03] || [9.43156920e-04] :: S 0.305137, U 11.508194
+INFO: Energy norm = |R'du|/|R0'du0| = [2.847551875066e-04] || [2.847551875066e-04]
+nor = 4.12839218e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 4.40244323e-07 || HU = 9.99800000e-01
+(3) IT = 47 : R = 8.98180720e-06 :: ||f||/||f0|| = [4.12839218e-06] || [6.25793197e-07] :: S 0.309129, U 12.40043
+INFO: Energy norm = |R'du|/|R0'du0| = [4.731975163433e-09] || [4.731975163433e-09]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 4)  Time 5.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 4.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.343175, U 12.389344
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640907921e-03] || [1.144640907921e-03]
+nor = 2.33744563e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46365205e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757934e-06 :: ||f||/||f0|| = [2.33744563e-06] || [2.94595712e-10] :: S 0.343175, U 12.490489
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481340361935e-14] || [4.481340361935e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 4.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 47 : R = 8.98180720e-06 :: ||f||/||f0|| = [1.23283028e+00] || [1.86875851e-01] :: S 0.349159, U 13.15930
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 2.30394731e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.49251678e-02 || HU = 9.99800000e-01
+(1) IT = 95 : R = 8.52493087e-06 :: ||f||/||f0|| = [2.30394731e-01] || [3.49238757e-02] :: S 0.352137, U 13.634311
+INFO: Energy norm = |R'du|/|R0'du0| = [6.809828982816e-02] || [6.809828982816e-02]
+nor = 4.49891594e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.81303394e-04 || HU = 9.99800000e-01
+(2) IT = 44 : R = 8.66929853e-06 :: ||f||/||f0|| = [4.49891594e-03] || [6.81958221e-04] :: S 0.356152, U 14.156073
+INFO: Energy norm = |R'du|/|R0'du0| = [1.800163482775e-04] || [1.800163482775e-04]
+nor = 1.85864530e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.70677895e-07 || HU = 9.99800000e-01
+(3) IT = 48 : R = 9.99309257e-06 :: ||f||/||f0|| = [1.85864530e-06] || [2.81738636e-07] :: S 0.359142, U 14.686839
+INFO: Energy norm = |R'du|/|R0'du0| = [1.514273425003e-09] || [1.514273425003e-09]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 5)  Time 6.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 5.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.383106, U 15.20158
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640906793e-03] || [1.144640906793e-03]
+nor = 2.33750129e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46391228e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757933e-06 :: ||f||/||f0|| = [2.33750129e-06] || [2.94602727e-10] :: S 0.383106, U 15.118037
+INFO: Energy norm = |R'du|/|R0'du0| = [4.480817502758e-14] || [4.480817502758e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 5.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 48 : R = 9.99309257e-06 :: ||f||/||f0|| = [1.27739049e+00] || [1.93630412e-01] :: S 0.387109, U 15.652438
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 2.09222413e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 2.68268114e-02 || HU = 9.99800000e-01
+(1) IT = 100 : R = 7.49638969e-06 :: ||f||/||f0|| = [2.09222413e-01] || [3.17145166e-02] :: S 0.390102, U 16.272293
+INFO: Energy norm = |R'du|/|R0'du0| = [6.014782847378e-02] || [6.014782847378e-02]
+nor = 3.34598597e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 2.55759527e-04 || HU = 9.99800000e-01
+(2) IT = 53 : R = 5.68355601e-06 :: ||f||/||f0|| = [3.34598597e-03] || [5.07193882e-04] :: S 0.392101, U 16.814342
+INFO: Energy norm = |R'du|/|R0'du0| = [1.182193769635e-04] || [1.182193769635e-04]
+nor = 1.60837423e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 2.31060646e-07 || HU = 9.99800000e-01
+(3) IT = 54 : R = 4.89414975e-06 :: ||f||/||f0|| = [1.60837423e-06] || [2.43801851e-07] :: S 0.395089, U 17.361953
+INFO: Energy norm = |R'du|/|R0'du0| = [9.479334352973e-10] || [9.479334352973e-10]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 6)  Time 7.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 6.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.420125, U 17.698267
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640908175e-03] || [1.144640908175e-03]
+nor = 2.33755817e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46417818e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757933e-06 :: ||f||/||f0|| = [2.33755817e-06] || [2.94609895e-10] :: S 0.420125, U 17.796521
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481333283611e-14] || [4.481333283611e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 6.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 54 : R = 4.89414975e-06 :: ||f||/||f0|| = [1.31894603e+00] || [1.99929517e-01] :: S 0.422110, U 18.326811
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 1.91870675e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 2.11623141e-02 || HU = 9.99800000e-01
+(1) IT = 103 : R = 7.47297897e-06 :: ||f||/||f0|| = [1.91870675e-01] || [2.90842918e-02] :: S 0.423097, U 18.948363
+INFO: Energy norm = |R'du|/|R0'du0| = [5.377296270840e-02] || [5.377296270840e-02]
+nor = 2.54957985e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.76571266e-04 || HU = 9.99800000e-01
+(2) IT = 49 : R = 6.33739265e-06 :: ||f||/||f0|| = [2.54957985e-03] || [3.86472422e-04] :: S 0.426093, U 19.487294
+INFO: Energy norm = |R'du|/|R0'du0| = [8.026412268304e-05] || [8.026412268304e-05]
+nor = 4.75069069e-07 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.47197248e-08 || HU = 9.99800000e-01
+(3) IT = 43 : R = 8.84719190e-06 :: ||f||/||f0|| = [4.75069069e-07] || [7.20122940e-08] :: S 0.429095, U 20.14437
+INFO: Energy norm = |R'du|/|R0'du0| = [2.043904355664e-10] || [2.043904355664e-10]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 7)  Time 8.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 7.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.471034, U 20.355510
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640906955e-03] || [1.144640906955e-03]
+nor = 2.33754566e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46411973e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757934e-06 :: ||f||/||f0|| = [2.33754566e-06] || [2.94608320e-10] :: S 0.471042, U 20.452842
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481222752260e-14] || [4.481222752260e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 7.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 43 : R = 8.84719190e-06 :: ||f||/||f0|| = [1.35830574e+00] || [2.05895771e-01] :: S 0.473032, U 20.982421
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 1.88911761e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.93429594e-02 || HU = 9.99800000e-01
+(1) IT = 110 : R = 8.36164934e-06 :: ||f||/||f0|| = [1.88911761e-01] || [2.86357715e-02] :: S 0.476031, U 21.625427
+INFO: Energy norm = |R'du|/|R0'du0| = [5.004200553250e-02] || [5.004200553250e-02]
+nor = 1.11175623e-02 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.46338800e-03 || HU = 9.99800000e-01
+(2) IT = 51 : R = 6.37734838e-06 :: ||f||/||f0|| = [1.11175623e-02] || [1.68523108e-03] :: S 0.479034, U 22.166591
+INFO: Energy norm = |R'du|/|R0'du0| = [1.816358223571e-04] || [1.816358223571e-04]
+nor = 2.02900770e-04 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.33079764e-04 || HU = 9.99800000e-01
+(3) IT = 56 : R = 9.75927283e-06 :: ||f||/||f0|| = [2.02900770e-04] || [3.07562644e-05] :: S 0.482030, U 22.698436
+INFO: Energy norm = |R'du|/|R0'du0| = [1.627536086456e-07] || [1.627536086456e-07]
+Error in the iteration : iter > iter_max (3, 3)
+Imposed to use NO Line search [INFO = 1, ART = 1]
+
+[1] Sub. steps = 2 :: gama = 7.500000e-01 || Time 8.000000e-02 | dt = 5.000000e-03
+
+STEP = 0 :: NS =  2 || Time 8.000000e-02 | dt = 5.000000e-03
+(0) IT = 56 : R = 9.75927283e-06 :: ||f||/||f0|| = [7.04203295e-01] || [1.06745099e-01] :: S 0.485030, U 23.231443
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 4.13903254e-02 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.45463028e-03 || HU = 9.99800000e-01
+(1) IT = 65 : R = 8.34581247e-06 :: ||f||/||f0|| = [4.13903254e-02] || [6.27406092e-03] :: S 0.488020, U 23.791977
+INFO: Energy norm = |R'du|/|R0'du0| = [5.373333273899e-03] || [5.373333273899e-03]
+nor = 1.17081553e-04 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 8.00164484e-06 || HU = 9.99800000e-01
+(2) IT = 52 : R = 6.07956492e-06 :: ||f||/||f0|| = [1.17081553e-04] || [1.77475483e-05] :: S 0.490022, U 24.336107
+INFO: Energy norm = |R'du|/|R0'du0| = [7.990008507339e-07] || [7.990008507339e-07]
+nor = 1.45685212e-09 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.54829599e-10 || HU = 9.99800000e-01
+(3) IT = 44 : R = 7.80977928e-06 :: ||f||/||f0|| = [1.45685212e-09] || [2.20833707e-10] :: S 0.496022, U 24.860104
+INFO: Energy norm = |R'du|/|R0'du0| = [2.394437702215e-14] || [2.394437702215e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 5.00000000e-03
+
+STEP = 1 :: NS =  2 || Time 8.000000e-02 | dt = 5.000000e-03
+(0) IT = 44 : R = 7.80977928e-06 :: ||f||/||f0|| = [7.12897802e-01] || [1.08063036e-01] :: S 0.500013, U 25.394705
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 4.00444772e-02 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.15522769e-03 || HU = 9.99800000e-01
+(1) IT = 65 : R = 9.81294974e-06 :: ||f||/||f0|| = [4.00444772e-02] || [6.07005350e-03] :: S 0.504017, U 25.960897
+INFO: Energy norm = |R'du|/|R0'du0| = [5.154298338783e-03] || [5.154298338783e-03]
+nor = 1.04356459e-04 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 6.79130783e-06 || HU = 9.99800000e-01
+(2) IT = 44 : R = 9.98727522e-06 :: ||f||/||f0|| = [1.04356459e-04] || [1.58186431e-05] :: S 0.506011, U 26.498616
+INFO: Energy norm = |R'du|/|R0'du0| = [6.777417289157e-07] || [6.777417289157e-07]
+nor = 1.94219706e-09 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 3.46376097e-10 || HU = 9.99800000e-01
+(3) IT = 45 : R = 7.02175380e-06 :: ||f||/||f0|| = [1.94219706e-09] || [2.94403646e-10] :: S 0.508007, U 27.32398
+INFO: Energy norm = |R'du|/|R0'du0| = [4.875437426753e-14] || [4.875437426753e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 5.00000000e-03
+NR for solid_mechanics is subdivied, reset t(n)
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 8)  Time 9.000000e-02 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 8.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.542932, U 27.369587
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640908019e-03] || [1.144640908019e-03]
+nor = 2.33747680e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46379779e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757934e-06 :: ||f||/||f0|| = [2.33747680e-06] || [2.94599641e-10] :: S 0.542933, U 27.468650
+INFO: Energy norm = |R'du|/|R0'du0| = [4.481397544469e-14] || [4.481397544469e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 8.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 45 : R = 7.02175380e-06 :: ||f||/||f0|| = [1.39609067e+00] || [2.11623317e-01] :: S 0.547923, U 28.1110
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 1.65404744e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.40368180e-02 || HU = 9.99800000e-01
+(1) IT = 117 : R = 7.67917670e-06 :: ||f||/||f0|| = [1.65404744e-01] || [2.50725122e-02] :: S 0.551915, U 28.653624
+INFO: Energy norm = |R'du|/|R0'du0| = [4.433274917979e-02] || [4.433274917979e-02]
+nor = 1.57851122e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 9.10750512e-05 || HU = 9.99800000e-01
+(2) IT = 53 : R = 4.12827479e-06 :: ||f||/||f0|| = [1.57851122e-03] || [2.39275131e-04] :: S 0.552924, U 29.200021
+INFO: Energy norm = |R'du|/|R0'du0| = [4.042720910939e-05] || [4.042720910939e-05]
+nor = 1.56320032e-07 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 9.80694926e-09 || HU = 9.99800000e-01
+(3) IT = 47 : R = 6.92874170e-06 :: ||f||/||f0|| = [1.56320032e-07] || [2.36954263e-08] :: S 0.555925, U 29.729013
+INFO: Energy norm = |R'du|/|R0'du0| = [3.802798474209e-11] || [3.802798474209e-11]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+
+Finite deformations time step 9)  Time 1.000000e-01 | dt = 1.000000e-02
+======================================================================
+:: Do Newton Raphson for independent physics first
+----------------------------------------------------------------------
+:: Newton Raphson iteration for : heat_transfer
+:: t(n) = 9.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 8 : R = 6.28141462e-06 :: ||f||/||f0|| = [1.00000000e+00] || [1.26033183e-04] :: S 0.591875, U 30.65660
+INFO: Energy norm = |R'du|/|R0'du0| = [1.144640907873e-03] || [1.144640907873e-03]
+nor = 2.33754382e-06 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 5.46411113e-12 || HU = 9.99800000e-01
+(1) IT = 10 : R = 2.33757933e-06 :: ||f||/||f0|| = [2.33754382e-06] || [2.94608088e-10] :: S 0.591875, U 30.164041
+INFO: Energy norm = |R'du|/|R0'du0| = [4.480740597475e-14] || [4.480740597475e-14]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson iteration starts for dependent physics 
+----------------------------------------------------------------------
+:: (0/5) Newton Raphson iteration for : solid_mechanics
+:: t(n) = 9.000000e-02, dts = (1.000000e-02 1.000000e-02)
+(0) IT = 47 : R = 6.92874170e-06 :: ||f||/||f0|| = [1.43277371e+00] || [2.17183833e-01] :: S 0.594868, U 30.693218
+INFO: Energy norm = |R'du|/|R0'du0| = [0.000000000000e+00] || [0.000000000000e+00]
+nor = 1.55190284e-01 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 1.17320485e-02 || HU = 9.99800000e-01
+(1) IT = 118 : R = 5.94361910e-06 :: ||f||/||f0|| = [1.55190284e-01] || [2.35241759e-02] :: S 0.597873, U 31.359355
+INFO: Energy norm = |R'du|/|R0'du0| = [4.079051079571e-02] || [4.079051079571e-02]
+nor = 1.27598357e-03 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 6.76022439e-05 || HU = 9.99800000e-01
+(2) IT = 56 : R = 4.54576528e-06 :: ||f||/||f0|| = [1.27598357e-03] || [1.93417148e-04] :: S 0.599876, U 31.897443
+INFO: Energy norm = |R'du|/|R0'du0| = [2.980050550314e-05] || [2.980050550314e-05]
+nor = 9.01156756e-08 :: slope = -2.00000000e+00 || LS1 = 1.00000000e+00|| LS2 = 4.98781709e-09 || HU = 9.99800000e-01
+(3) IT = 51 : R = 7.38704154e-06 :: ||f||/||f0|| = [9.01156756e-08] || [1.36599854e-08] :: S 0.600873, U 32.412168
+INFO: Energy norm = |R'du|/|R0'du0| = [1.756739057855e-11] || [1.756739057855e-11]
+Physics based evolution thresh (e.g. damage): 0.000000 (wmax: 0.050000)
+Microscale subdivision alpha_ms: 0.000000 (max_substep: 2)
+Dissipation (vol weighted) [current] || [integrated] || (dt): 0.00000000e+00 0.00000000e+00 1.00000000e-02
+======================================================================
+:: Staggered Newton Raphson is converged. Done.
+:: Maximum physics based evolution threshold = 0.000000
+
+*********************************************
+*********************************************
+Total number of ODE computations: 0
+
+Time of analysis on processor [0] -  System 0.632928, User 32.648309.
+
+Total time (no MPI_Init()) = 33.867775
+Startup time               = 0.262580
+
+heat_transfer::Hypre solve time          = 0.209221
+heat_transfer::Stiffmat compute time     = 1.011179
+heat_transfer::Residualsmat compute time = 0.763035
+
+solid_mechanics::Hypre solve time          = 6.300650
+solid_mechanics::Stiffmat compute time     = 18.352519
+solid_mechanics::Residualsmat compute time = 2.965863
+
+MPI finalizing
