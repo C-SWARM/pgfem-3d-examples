@@ -10,11 +10,13 @@ to thermal expansions. The residual stress due to the thermal expansion can be
 calculated analytically and the numerical solution can be compared with the
 analytical solution.
 
+More details can be found in the includes slides.pdf presentation.
+
 How to run this problem?
 =======================
 a) Generate the input via processing pipeline
 
-  need recent version of gcc (e.g., gcc/7.1.0) which is included into the docker
+  need recent version of gcc (e.g., gcc/7.1.0)
   >./local_makeset.pl clean [to clean any existing input]
   >./local_makeset.pl -np 4 [to create input for a 4-core job; you can create input for any number of cores] 
 
@@ -28,3 +30,4 @@ c) Visualize the displacement via paraview
   1. Open the paraview GUI
   2. File -> Load State -> select the file "parview_displacement_y.pvsm" or "parview_displacement_z.pvsm" and click OK
   3. Click onto the "Play" button to see the affect of thermal expansion 
+
