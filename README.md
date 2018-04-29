@@ -28,6 +28,7 @@ b) Run the pgfem_3d with the generated inputs
 c) Visualize the displacement via paraview
 
   1. Open the paraview GUI
-  2. File -> Load State -> select the file "parview_displacement_y.pvsm" or "parview_displacement_z.pvsm" and click OK
-  3. Click onto the "Play" button to see the affect of thermal expansion 
+  2. File -> Load State -> select the file "parview_displacement_z.pvsm" (or "parview_displacement_y.pvsm") and click OK
+  3. Once the paraview state is loaded, point to: out -> box_$(NP)CPU -> VTK -> box_..pvtu
+  4. Click onto the "Play" button to see the affect of thermal expansion
 
