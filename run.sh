@@ -1,7 +1,13 @@
 #!/bin/bash
 
-NP=4                   # number of Cores used
-echo $NP
+if [ -z $1 ]
+then
+    echo "Please supply the number of domains that the input is decomposed into"
+    exit 1
+fi
+
+NP=$1                   # number of Cores used
+echo "executing for $NP domains"
 
 TEST_DIR=$PWD
 name=box
