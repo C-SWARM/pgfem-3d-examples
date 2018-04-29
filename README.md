@@ -18,12 +18,12 @@ a) Generate the input via processing pipeline
 
   need recent version of gcc (e.g., gcc/7.1.0)
   >./local_makeset.pl clean [to clean any existing input]
-  >./local_makeset.pl -np 4 [to create input for a 4-core job; you can create input for any number of cores] 
+  >./local_makeset.pl -np $(NP) [to create input for an NP-core job; you can create input for any number of cores] 
 
   It will create a directory \box_4CPU containing all inputs
 
 b) Run the pgfem_3d with the generated inputs 
-  >./run.sh 
+  >./run.sh $(NP)
 
 c) Visualize the displacement via paraview
 
